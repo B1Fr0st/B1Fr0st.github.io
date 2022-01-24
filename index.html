@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- This is based on DillingerLee's great template here:
+https://github.com/Team-Code/KA_Offline -->
+<html> 
+ <head>
+    <title>Processing.JS inside Webpages: Template</title>
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        #canvas {
+            border: none;
+            outline: none;
+            margin-top: 10px;
+        }
+        .resize {
+        	display: none;
+        	font-family: "Montserrat";
+        	font-size: 20px;
+        	padding: 15px 15px 15px 15px;
+        }
+        .resize a {
+        	color: rgb(0, 111, 255);
+        	text-decoration: none;
+        	border-bottom: 1px solid;
+        	border-color: rgba(0, 111, 255, 0.3);
+        	transition-duration: 0.3s;
+        }
+        .resize a:hover {
+        	border-color: rgba(0, 111, 255, 1);
+        }
+    </style>
+</head>
+ <body>
+    <div class="resize">
+            <p>
+                <a href = "https://www.khanacademy.org/cs/title/1234567890?width=800&editor=no">Open</a>
+            </p>
+        </div>
+        
+    <p align="center"> 
+	<!--This draws the Canvas on the webpage -->
+      <canvas id="canvas"></canvas> 
+    </p>
+ </body>
+
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(600, 600); 
+        println("does this work");
+     }};
+
+    // Get the canvas that Processing-js will use
+    var canvas = document.getElementById("canvas"); 
+    // Pass the function sketchProc (defined in myCode.js) to Processing's constructor.
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+ 
+ <!-- Script Tag - Resize Logic -->
+<script type = "application/javascript">
+    // if (window.innerWidth !== 800 || window.innerHeight !== 600) {
+    //     canvas.style.display = "none";
+    //     document.getElementsByClassName("resize")[0].style.display = "block";
+    // }
+</script>
+
+</html>
